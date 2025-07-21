@@ -4,8 +4,9 @@ import string
 def generate_password(min_length = 7, numbers = True, special_characters = True):
     letters = string.ascii_letters
     digits = string.digits
+    ambiguous = 'O0Il1'
     excluded_chars = ":,.+-><°¬¢£³¨^;?`~²¹+\\/=§]}|ª{[º)('\""
-    special = ''.join([c for c in string.punctuation if c not in excluded_chars])
+    special = ''.join([c for c in string.punctuation if c not in excluded_chars and ambiguous])
 
     characters = letters
     if numbers:
@@ -65,11 +66,8 @@ while True:
     else:
         print("Please enter 'yes' or 'no'.")
 
-    
 
 
 
 pwd = generate_password(min_length, has_number, has_special)
-print("The Generated Password is:",pwd)
-
-
+print("1.The Generated Password is:",pwd)
