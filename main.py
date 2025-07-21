@@ -4,7 +4,8 @@ import string
 def generate_password(min_length = 7, numbers = True, special_characters = True):
     letters = string.ascii_letters
     digits = string.digits
-    special = string.punctuation
+    excluded_chars = ':,.+-><°¬¢£³¨^~²¹+\/=§]}|ª{[º)(\'"'
+    special = ''.join([c for c in string.punctuation if c not in excluded_chars])
 
     characters = letters
     if numbers:
@@ -20,14 +21,13 @@ def generate_password(min_length = 7, numbers = True, special_characters = True)
 
     while not meets_criteria or len(pwd) < min_length:
         new_char = random.choice(characters)
-        pwd += new_char 
+        pwd += new_char
 
         if new_char in digits:
             has_number = True
-        else:
-            if new_char in special:
-                has_special = True
-        
+        elif new_char in special:
+            has_special = True
+
         meets_criteria = True
         if numbers:
             meets_criteria = has_number
@@ -37,14 +37,26 @@ def generate_password(min_length = 7, numbers = True, special_characters = True)
     return pwd
 
 
+while True:
+    try:
+        min_length = int(input("Enter minimum length of password: "))
+        if min_length > 0:
+            break
+        else:
+                print("Please enter a number greater than zero.")
+    except ValueError:
+        print("Invalid Input. Please enter a valid number.")
 
-min_lenght = int(input("Enter minimum length of password: "))
-has_number = input("Should it contain numbers? (yes/no): ").lower() == 'yes'
-has_special = input("Should it contain special characters? (yes/no): ").lower() == 'yes'
+
+while True:
+    has_number = input("Should it contain numbers? (yes/no): ").lower() == 'yes'
+    has_special = input("Should it contain special characters? (yes/no): ").lower() == 'yes'
+
+    if has_number and has_special
 
 
 
-pwd = generate_password(min_lenght, has_number, has_special)
+pwd = generate_password(min_length, has_number, has_special)
 print("The Generated Password is:",pwd)
 
 
