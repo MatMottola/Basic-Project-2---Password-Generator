@@ -4,7 +4,7 @@ import string
 def generate_password(min_length = 7, numbers = True, special_characters = True):
     letters = string.ascii_letters
     digits = string.digits
-    excluded_chars = ':,.+-><°¬¢£³¨^~²¹+\/=§]}|ª{[º)(\'"'
+    excluded_chars = ":,.+-><°¬¢£³¨^;?`~²¹+\\/=§]}|ª{[º)('\""
     special = ''.join([c for c in string.punctuation if c not in excluded_chars])
 
     characters = letters
@@ -49,10 +49,23 @@ while True:
 
 
 while True:
-    has_number = input("Should it contain numbers? (yes/no): ").lower() == 'yes'
-    has_special = input("Should it contain special characters? (yes/no): ").lower() == 'yes'
+    num_input = input("Should it contain numbers? (yes/no): ").lower()
+    if num_input in ['yes', 'no']:
+        has_number = num_input =='yes'
+        break
+    else:
+        print("Please enter 'yes' or 'no'.")
 
-    if has_number and has_special
+
+while True:
+    special_input = input("Should it contain special characters? (yes/no): ").lower()
+    if special_input in ['yes', 'no']:
+        has_special = special_input =='yes'
+        break
+    else:
+        print("Please enter 'yes' or 'no'.")
+
+    
 
 
 
