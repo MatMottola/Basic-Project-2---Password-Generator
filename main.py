@@ -6,7 +6,8 @@ def generate_password(min_length = 7, numbers = True, special_characters = True)
     digits = string.digits
     ambiguous = 'O0Il1'
     excluded_chars = ":,.+-><°¬¢£³¨^;?`~²¹+\\/=§]}|ª{[º)('\""
-    special = ''.join([c for c in string.punctuation if c not in excluded_chars and ambiguous])
+
+    special = ''.join([c for c in string.punctuation if c not in excluded_chars and c not in ambiguous])
 
     characters = letters
     if numbers:
