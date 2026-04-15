@@ -23,3 +23,24 @@ python password_generator.py
 ```
 
 Siga as instruções no terminal:
+```bash
+Enter minimum length of password: 12
+Should it contain numbers? (yes/no): yes
+Should it contain special characters? (yes/no): yes
+The Generated Password is: aB7#mKx9@Rqw
+```
+
+## Tecnologias
+
+- Python 3.x
+- Bibliotecas nativas: `random`, `string`
+
+## Decisões técnicas
+
+- `random.choice()` sobre o conjunto de caracteres válidos garante
+  distribuição uniforme
+- Loop `while` com flags booleanas assegura que os critérios mínimos
+  sejam sempre satisfeitos antes do retorno
+- Caracteres ambíguos excluídos seguindo boas práticas de UX
+  em sistemas de autenticação
+
